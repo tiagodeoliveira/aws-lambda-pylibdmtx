@@ -23,3 +23,7 @@ Resources:
         - python3.8
     Metadata:
       BuildMethod: makefile
+
+Outputs:
+  LambdaName:
+    Value: !Ref DecoderFunction
