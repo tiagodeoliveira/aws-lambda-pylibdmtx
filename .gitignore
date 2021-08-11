@@ -11,3 +11,5 @@ py_dmtx_layer/bin/*
 
 # Local History for Visual Studio Code
 .history/
+
+samconfig.toml
