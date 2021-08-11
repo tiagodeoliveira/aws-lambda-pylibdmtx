@@ -1,0 +1,7 @@
+.aws-sam
+
+py_dmtx_layer/lib/*
+!py_dmtx_layer/lib/.gitkeep
+
+py_dmtx_layer/bin/*
+!py_dmtx_layer/bin/.gitkeep

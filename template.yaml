@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  DecoderFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: decoder_function/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Layers:
+        - !Ref PyDMTXLayer
+        - "arn:aws:lambda:eu-central-1:770693421928:layer:Klayers-python38-Pillow:12" # uses pillow from https://github.com/keithrozario/Klayers
+  PyDMTXLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: py_dmtx_layer
+      CompatibleRuntimes:
+        - python3.8
+    Metadata:
+      BuildMethod: makefile
