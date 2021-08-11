@@ -6,6 +6,5 @@ To generate the necessary binaries run [download_binaries.sh](./download_binarie
 
 With the binaries in place you can create your [Serverless Application Model](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-getting-started.html) stack:
 ```
-sam init
 sam deploy --guided
 ```
