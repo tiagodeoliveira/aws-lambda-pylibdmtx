@@ -6,14 +6,14 @@ The [py_dmtx_layer](./py_dmtx_layer) contains the binaries for [libdmtx](https:/
 To generate the necessary binaries run [download_binaries.sh](./download_binaries.sh). This script will start a docker container with [amazonlinux:2](https://hub.docker.com/_/amazonlinux), then it will compile `libdmtx` and download the necessary binaries for `ld & objdump`, those binaries will be copied to [py_dmtx_layer/lib](./py_dmtx_layer/lib) and [py_dmtx_layer/bin](./py_dmtx_layer/bin).
 
 With the binaries in place you can build the project and test locally
-```
+```bash
 $ sam build
 $ sam local invoke # the expected result from the lambda below
 {"statusCode": 200, "body": "[{\"content\": \"Stegosaurus\", \"rect\": [5, 6, 96, 95]}, {\"content\": \"Plesiosaurus\", \"rect\": [298, 6, 95, 95]}]"}
 ```
 
 Now you can create your stack on AWS:
-```
+```bash
 $ sam deploy --guided
 
 CloudFormation outputs from deployed stack
