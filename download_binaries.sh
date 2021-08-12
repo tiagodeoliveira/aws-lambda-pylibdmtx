@@ -2,9 +2,13 @@
 
 set -e
 
-if [ -z "${I_AM_ON_DOCKER}" ];then
+if [ -z "${I_AM_ON_DOCKER}" ]; then
+    # if not running on docker, starts the container sharing the current directory
+    # invokes this script again inside the container
     docker run -w /building -v `pwd`:/src -e I_AM_ON_DOCKER=yes -it amazonlinux:2 /src/download_binaries.sh
 else
+    # now the script is being executed inside the container!
+    
     echo "================================================================="
     echo "Fetching dependencies"
     echo "================================================================="
