@@ -8,11 +8,11 @@ if [ -z "${I_AM_ON_DOCKER}" ]; then
     docker run -w /building -v `pwd`:/src -e I_AM_ON_DOCKER=yes -it amazonlinux:2 /src/download_binaries.sh
 else
     # now the script is being executed inside the container!
-    
+
     echo "================================================================="
     echo "Fetching dependencies"
     echo "================================================================="
-    yum update
+    yum -y update
     yum -y install git autoconf libtool make yumdownloader yum-utils rpmdevtools tree
 
     echo "================================================================="
